@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {background-color: rgb(255, 255, 255);}
+        h1   {color: rgb(0, 0, 0);}
+        p    {color: rgb(0, 0, 0);}
+        .header {padding: 40px;
+                text-align: center;
+                background: #64ffe0;
+                font-size: 28px;}
+        .questions {padding: 20px;
+                text-align: center;
+                background: #ffffff;
+                font-size: 16px;}
+    .back
+    {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .forward
+    {
+      position: absolute;
+      top: 60px;
+      left: 80px;
+    }
+    .fishes
+    {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .fish
+    {
+      position: absolute;
+      top: 60px;
+      left: 80px;}
+        </style>
+<div class="header">
+    <h1>Volunteer GPS</h1>
+    <p>Results for HIV:</p></div>
+<head>
+</head>
+<body>
+    {% for Print in Path %}
+    <table>
+    <tr>
+        <td>Locations(In Order): {{Print}}<br></td>
+    </tr>
+    <tr>
+        <td>Potential Volunteers(In Order): {{VEC}}<br></td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>Total Distance: {{dist}}Miles<br></td>
+    </tr>
+</table>
+    <div class="parent">
+        <img src="{{url_for('static',filename='map.jpg')}}" />
+        <div class="inner"><img src="{{url_for('static',filename='waypoints.png')}}" /></div>
+    </div>
+    <div style="position: relative; left: 0; top: 0;">
+        <img src="static/map.jpg" class="fishes"/>
+        <img src="static/waypoints.png" class="fish"/>
+      </div>
+</body>
+</html>
